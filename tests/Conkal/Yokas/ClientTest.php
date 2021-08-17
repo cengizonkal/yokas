@@ -14,7 +14,8 @@ class ClientTest extends TestCase
 
     public function testKodOlustur()
     {
-        $client = new Client('');
+        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl',getenv('YOKAS_USERNAME'),getenv('YOKAS_PASSWORD'));
+
         $this->assertTrue(true);
     }
 

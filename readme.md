@@ -1,4 +1,6 @@
 # YOKSIS REST API CLIENT
+![Build](https://github.com/cengizonkal/yokas/workflows/Build/badge.svg)
+
 
 ### Kurulum
 ```
