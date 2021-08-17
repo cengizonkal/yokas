@@ -6,7 +6,6 @@ namespace Conkal\Yokas;
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
 
 /**
- * @method KodOlustur()
  * @method ogrenciSil($request)
  * @method ogrenciekle(OgrenciEkleRequest $request)
  * @method Kayitli_ogrenciBilgi($request)

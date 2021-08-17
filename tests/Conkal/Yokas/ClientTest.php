@@ -2,6 +2,7 @@
 
 namespace Conkal\Yokas;
 
+use Conkal\Yokas\Requests\OgrenciEkleRequest;
 use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase
@@ -14,13 +15,15 @@ class ClientTest extends TestCase
 
     public function testKodOlustur()
     {
-        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl',getenv('YOKAS_USERNAME'),getenv('YOKAS_PASSWORD'));
-
-        $this->assertTrue(true);
+        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
+        $this->assertTrue($client);
     }
 
     public function testOgrenciekle()
     {
+        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
+        $ognrenciEkleRequest = new OgrenciEkleRequest();
+        $client->ogrenciekle($ognrenciEkleRequest);
         $this->assertTrue(true);
     }
 
