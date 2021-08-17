@@ -4,10 +4,10 @@ namespace Conkal\Yokas;
 
 
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
+use Conkal\Yokas\Responses\OgrenciEkleResponse;
 
 /**
  * @method ogrenciSil($request)
- * @method ogrenciekle(OgrenciEkleRequest $request)
  * @method Kayitli_ogrenciBilgi($request)
  * @method ogrenciler2($request)
  * @method ogrencigelisbilgi($request)
@@ -47,6 +47,12 @@ class Client extends \SoapClient
         $this->__setSoapHeaders($header);
         $auth['sEncUserPassword'] = $this->KodOlustur()->KodOlusturResult;
         return array($auth);
+    }
+
+    public function ogrenciekle(OgrenciEkleRequest $request)
+    {
+        $result = parent::ogrenciEkle($request);
+        return new OgrenciEkleResponse($result->ogrenciekleResult);
     }
 
 

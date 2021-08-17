@@ -23,7 +23,8 @@ class ClientTest extends TestCase
     {
         $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
         $ognrenciEkleRequest = new OgrenciEkleRequest();
-        var_dump($client->ogrenciekle($ognrenciEkleRequest));
+        $result = $client->ogrenciekle($ognrenciEkleRequest);
+
         $this->assertTrue(true);
     }
 
