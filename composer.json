@@ -1,0 +1,29 @@
+{
+  "name": "conkal/yokas",
+  "description": "KKTC YOKAS Soap Cliet",
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": ">=8.0",
+    "ext-soap": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Conkal\\Yokas\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests"
+    ]
+  },
+  "authors": [
+    {
+      "name": "cengiz",
+      "email": "onkal.cengiz@gmail.com"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  }
+}
