@@ -2,9 +2,9 @@
 
 namespace Conkal\Yokas\Requests;
 
-class OgrenciEkleRequest
+class OgrenciEkleRequest implements \ArrayAccess
 {
-    public $xsifre;
+    public $xsifre = true;
     public $suniversiteid;
     public $skimlikno;
     public $spasaportno;
@@ -45,4 +45,23 @@ class OgrenciEkleRequest
     public $semail;
     public $suyrugu;
 
+    public function offsetExists($offset)
+    {
+        return in_array($offset, get_object_vars($this));
+    }
+
+    public function offsetGet($offset)
+    {
+        return get_object_vars($this)[$offset];
+    }
+
+    public function offsetSet($offset, $value)
+    {
+        $this->{$offset} = $value;
+    }
+
+    public function offsetUnset($offset)
+    {
+        $this->{$offset} = null;
+    }
 }

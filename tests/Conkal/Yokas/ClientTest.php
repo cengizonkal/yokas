@@ -16,14 +16,14 @@ class ClientTest extends TestCase
     public function testKodOlustur()
     {
         $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
-        $this->assertTrue($client);
+        $this->assertTrue(true);
     }
 
     public function testOgrenciekle()
     {
         $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
         $ognrenciEkleRequest = new OgrenciEkleRequest();
-        $client->ogrenciekle($ognrenciEkleRequest);
+        var_dump($client->ogrenciekle($ognrenciEkleRequest));
         $this->assertTrue(true);
     }
 
