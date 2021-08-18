@@ -11,6 +11,7 @@ use Conkal\Yokas\Responses\OgrenciEkleResponse;
  * @method Kayitli_ogrenciBilgi($request)
  * @method ogrenciler2($request)
  * @method ogrencigelisbilgi($request)
+ * @method universitebirimliste($request)
  */
 class Client extends \SoapClient
 {
