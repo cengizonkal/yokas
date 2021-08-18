@@ -96,7 +96,9 @@ class ClientTest extends TestCase
         $request = new UniversiteBirimListeRequest();
         $request->suninersiteid=1;
         $response = $client->universitebirimliste($request);
-        //var_dump($response->Table[502]);
+//        foreach ($response->Table as $item) {
+//            var_dump($item);
+//        }
         $this->assertTrue(true);
 
     }

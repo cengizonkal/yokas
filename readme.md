@@ -75,3 +75,12 @@ $request->shangiasi = 'Sinovac';
 $response = $client->ogrencigelisbilgi($request);
 
 ```
+### Birim Listele
+```php
+$request = new UniversiteBirimListeRequest();
+$request->suninersiteid=1;
+$response = $client->universitebirimliste($request);
+//        foreach ($response->Table as $item) {
+//            var_dump($item);
+//        } 
+```
