@@ -5,7 +5,8 @@
   "license": "MIT",
   "require": {
     "php": ">=8.0",
-    "ext-soap": "*"
+    "ext-soap": "*",
+    "ext-simplexml": "*"
   },
   "autoload": {
     "psr-4": {

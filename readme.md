@@ -13,8 +13,6 @@ $client = new \Conkal\Yokas\Client('https://yokas.mebnet.net/service.asmx?wsdl',
 ```
 ### Öğrenci Kaydet
 ```php
-require __DIR__ . '/vendor/autoload.php';
-$client = new \Conkal\Yokas\Client('https://yokas.mebnet.net/service.asmx?wsdl', '<YOKAS_USERNAME>', '<YOKAS_PASSWORD>');
 $ognrenciEkleRequest = new OgrenciEkleRequest();
 $ognrenciEkleRequest->suyruk = 1;
 $ognrenciEkleRequest->suniversiteid = 1;
@@ -57,5 +55,23 @@ $ognrenciEkleRequest->sdogumyeri = 'doğum yeri';
 $ognrenciEkleRequest->sbolumyili = '4';
 $result = $client->ogrenciekle($ognrenciEkleRequest);
 // var_dump($result);
+
+```
+### Öğrenci Geliş Bilgisi
+```php
+$request = new OgrenciGelisBilgisiRequest();
+$request->sgelistarihi = '01.01.2022';
+$request->sakademikyil = '2021-22';
+$request->sakademikdonem = '1';
+$request->sasitarihi = '01.01.2022';
+$request->sogrencino = '123456789';
+$request->adi = 'adi';
+$request->soyadi = 'soyadi';
+$request->skimlikno = '123456789';
+$request->spasaportno = '123456789';
+$request->suyrugu = 'TRY';
+$request->sgeldigiulke = 'Türkiye';
+$request->shangiasi = 'Sinovac';
+$response = $client->ogrencigelisbilgi($request);
 
 ```

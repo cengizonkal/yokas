@@ -5,13 +5,13 @@ namespace Conkal\Yokas;
 
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
 use Conkal\Yokas\Responses\OgrenciEkleResponse;
+use Conkal\Yokas\Responses\UniversiteBirimListeResponse;
 
 /**
  * @method ogrenciSil($request)
  * @method Kayitli_ogrenciBilgi($request)
  * @method ogrenciler2($request)
  * @method ogrencigelisbilgi($request)
- * @method universitebirimliste($request)
  */
 class Client extends \SoapClient
 {
@@ -54,6 +54,12 @@ class Client extends \SoapClient
     {
         $result = parent::ogrenciEkle($request);
         return new OgrenciEkleResponse($result->ogrenciekleResult);
+    }
+
+    public function universitebirimliste($request)
+    {
+
+        return simplexml_load_string(parent::universitebirimliste($request)->universitebirimlisteResult->any,UniversiteBirimListeResponse::class);
     }
 
 

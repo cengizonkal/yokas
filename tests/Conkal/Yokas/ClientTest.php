@@ -4,6 +4,7 @@ namespace Conkal\Yokas;
 
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
 use Conkal\Yokas\Requests\OgrenciGelisBilgisiRequest;
+use Conkal\Yokas\Requests\UniversiteBirimListeRequest;
 use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase
@@ -87,5 +88,16 @@ class ClientTest extends TestCase
     public function testOgrenciSil()
     {
         $this->assertTrue(true);
+    }
+
+    public function testUniversitebirimliste()
+    {
+        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
+        $request = new UniversiteBirimListeRequest();
+        $request->suninersiteid=1;
+        $response = $client->universitebirimliste($request);
+        //var_dump($response->Table[502]);
+        $this->assertTrue(true);
+
     }
 }
