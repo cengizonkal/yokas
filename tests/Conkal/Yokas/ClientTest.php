@@ -119,6 +119,6 @@ class ClientTest extends TestCase
         $request->sasitarihi = "01.01.2020";
 
         $response = $client->UniversiteAsibilgi($request);
-        var_dump($response);
+        $this->assertContains($response->getCode(), ['002', '001']);
     }
 }
