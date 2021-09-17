@@ -4,7 +4,7 @@ namespace Conkal\Yokas\Requests;
 
 class OgrenciGelisBilgisiRequest extends Request
 {
-    public $xsifre=true;
+    public $xsifre = true;
     public $suniversiteid;
     public $sogrencino;
     public $adi;
