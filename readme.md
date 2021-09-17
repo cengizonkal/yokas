@@ -59,3 +59,23 @@ $result = $client->ogrenciekle($ognrenciEkleRequest);
 // var_dump($result);
 
 ```
+
+```php
+$client = new Client(
+    'https://yokas.mebnet.net/service.asmx?wsdl',
+    'YOKAS_USERNAME',
+    'YOKAS_PASSWORD'
+);
+$request = new UniversiteAsibilgiRequest();
+$request->suniversiteid = 'YOKAS_ID';
+$request->skimlikno = 215045;
+$request->sadi = "cengiz";
+$request->ssoyadi = "önkal";
+$request->sunvan = "personel";
+$request->shangiasi = "Sinovac";
+$request->sasitarihi = "01.01.2020";
+
+$response = $client->UniversiteAsibilgi($request);
+$this->assertContains($response->getCode(), ['002', '001']);
+
+```
