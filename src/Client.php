@@ -4,7 +4,9 @@ namespace Conkal\Yokas;
 
 
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
+use Conkal\Yokas\Requests\UniversiteAsibilgiRequest;
 use Conkal\Yokas\Responses\OgrenciEkleResponse;
+use Conkal\Yokas\Responses\UniversiteAsibilgiResponse;
 
 /**
  * @method ogrenciSil($request)
@@ -54,6 +56,12 @@ class Client extends \SoapClient
     {
         $result = parent::ogrenciEkle($request);
         return new OgrenciEkleResponse($result->ogrenciekleResult);
+    }
+
+    public function UniversiteAsibilgi(UniversiteAsibilgiRequest $request)
+    {
+        $result = parent::UniversiteAsibilgi($request);
+        return new UniversiteAsibilgiResponse($result->UniversiteAsibilgiResult);
     }
 
 
