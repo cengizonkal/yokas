@@ -11,6 +11,8 @@ class ClientTest extends TestCase
 
     public function testOgrencigelisbilgi()
     {
+
+
         $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
         $request = new OgrenciGelisBilgisiRequest();
         $request->sgelistarihi = '01.01.2022';

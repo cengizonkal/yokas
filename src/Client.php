@@ -16,8 +16,8 @@ use Conkal\Yokas\Responses\OgrenciEkleResponse;
 class Client extends \SoapClient
 {
 
-    private string $username;
-    private string $password;
+    private  $username;
+    private  $password;
 
     public function __construct($wsdl, $password, $username)
     {
