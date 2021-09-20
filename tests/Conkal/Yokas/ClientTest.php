@@ -18,6 +18,7 @@ class ClientTest extends TestCase
             getenv('YOKAS_PASSWORD')
         );
         $request = new OgrenciGelisBilgisiRequest();
+        $request->suniversiteid = getenv('YOKAS_ID');
         $request->sgelistarihi = '01.01.2022';
         $request->sakademikyil = '2021-22';
         $request->sakademikdonem = '1';
