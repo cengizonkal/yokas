@@ -5,6 +5,7 @@ namespace Conkal\Yokas\Requests;
 abstract class Request implements \ArrayAccess
 {
 
+    public $xsifre = true;
     public function offsetExists($offset)
     {
         return in_array($offset, get_object_vars($this));

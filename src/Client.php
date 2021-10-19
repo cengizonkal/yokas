@@ -6,15 +6,18 @@ namespace Conkal\Yokas;
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
 use Conkal\Yokas\Requests\OgrenciGelisBilgisiRequest;
 use Conkal\Yokas\Requests\UniversiteAsibilgiRequest;
+use Conkal\Yokas\Requests\UniversiteBirimRequest;
 use Conkal\Yokas\Responses\OgrenciEkleResponse;
 use Conkal\Yokas\Responses\OgrenciGelisBilgiResponse;
 use Conkal\Yokas\Responses\UniversiteAsibilgiResponse;
+use Conkal\Yokas\Responses\UniversiteBirimResponse;
 
 /**
  * @method ogrenciSil($request)
  * @method Kayitli_ogrenciBilgi($request)
  * @method ogrenciler2($request)
  * @method universitebirimliste($request)
+ * @method universiteBirim($request)
  */
 class Client extends \SoapClient
 {
@@ -69,6 +72,13 @@ class Client extends \SoapClient
     {
         $result = parent::ogrencigelisbilgi($request);
         return new OgrenciGelisBilgiResponse($result->ogrencigelisbilgiResult);
+    }
+
+
+    public function universiteBirim(UniversiteBirimRequest $request)
+    {
+        $result = parent::universiteBirim($request);
+        return new UniversiteBirimResponse($result->UniversiteBirimResult);
     }
 
 

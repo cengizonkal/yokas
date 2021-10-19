@@ -5,6 +5,7 @@ namespace Conkal\Yokas;
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
 use Conkal\Yokas\Requests\OgrenciGelisBilgisiRequest;
 use Conkal\Yokas\Requests\UniversiteAsibilgiRequest;
+use Conkal\Yokas\Requests\UniversiteBirimRequest;
 use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase
@@ -123,5 +124,34 @@ class ClientTest extends TestCase
         $this->assertTrue(true);
         //$this->assertTrue($response->isSuccessful());
         //$this->assertContains($response->getCode(), ['002', '001']);
+    }
+
+    public function testUniversiteBirim()
+    {
+
+        $client = new Client(
+            'https://yokas.mebnet.net/service.asmx?wsdl',
+            getenv('YOKAS_USERNAME'),
+            getenv('YOKAS_PASSWORD')
+        );
+        $request = new UniversiteBirimRequest();
+        $request->s1 = getenv('YOKAS_ID');
+        $request->s2 = "99999";
+        $request->s3 = "birimadi";
+        $request->s4 = "birimturadi";
+        $request->s5 = "baglibirim";
+        $request->s6 = "durum";
+        $request->s7 = "ogrenimdili";
+        $request->s8 = "ogrenimturu";
+        $request->s9 = "osymkod";
+        $request->s10 = "";
+        $request->s11 = "ogrenimsure";
+        $request->s12 = "birimadiingilizce";
+
+
+        $response = $client->universiteBirim($request);
+        var_dump($response);
+        $this->assertTrue(true);
+
     }
 }
