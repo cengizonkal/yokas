@@ -17,7 +17,6 @@ use Conkal\Yokas\Responses\UniversiteBirimResponse;
  * @method Kayitli_ogrenciBilgi($request)
  * @method ogrenciler2($request)
  * @method universitebirimliste($request)
- * @method universiteBirim($request)
  */
 class Client extends \SoapClient
 {
