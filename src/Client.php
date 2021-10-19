@@ -4,20 +4,23 @@ namespace Conkal\Yokas;
 
 
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
+use Conkal\Yokas\Requests\OgrenciGelisBilgisiRequest;
+use Conkal\Yokas\Requests\UniversiteAsibilgiRequest;
 use Conkal\Yokas\Responses\OgrenciEkleResponse;
-use Conkal\Yokas\Responses\UniversiteBirimListeResponse;
+use Conkal\Yokas\Responses\OgrenciGelisBilgiResponse;
+use Conkal\Yokas\Responses\UniversiteAsibilgiResponse;
 
 /**
  * @method ogrenciSil($request)
  * @method Kayitli_ogrenciBilgi($request)
  * @method ogrenciler2($request)
- * @method ogrencigelisbilgi($request)
+ * @method universitebirimliste($request)
  */
 class Client extends \SoapClient
 {
 
-    private string $username;
-    private string $password;
+    private  $username;
+    private  $password;
 
     public function __construct($wsdl, $password, $username)
     {
@@ -56,10 +59,16 @@ class Client extends \SoapClient
         return new OgrenciEkleResponse($result->ogrenciekleResult);
     }
 
-    public function universitebirimliste($request)
+    public function UniversiteAsibilgi(UniversiteAsibilgiRequest $request)
     {
+        $result = parent::UniversiteAsibilgi($request);
+        return new UniversiteAsibilgiResponse($result->UniversiteAsibilgiResult);
+    }
 
-        return simplexml_load_string(parent::universitebirimliste($request)->universitebirimlisteResult->any,UniversiteBirimListeResponse::class);
+    public function ogrencigelisbilgi(OgrenciGelisBilgisiRequest $request)
+    {
+        $result = parent::ogrencigelisbilgi($request);
+        return new OgrenciGelisBilgiResponse($result->ogrencigelisbilgiResult);
     }
 
 

@@ -4,7 +4,7 @@ namespace Conkal\Yokas;
 
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
 use Conkal\Yokas\Requests\OgrenciGelisBilgisiRequest;
-use Conkal\Yokas\Requests\UniversiteBirimListeRequest;
+use Conkal\Yokas\Requests\UniversiteAsibilgiRequest;
 use PHPUnit\Framework\TestCase;
 
 class ClientTest extends TestCase
@@ -12,8 +12,13 @@ class ClientTest extends TestCase
 
     public function testOgrencigelisbilgi()
     {
-        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
+        $client = new Client(
+            'https://yokas.mebnet.net/service.asmx?wsdl',
+            getenv('YOKAS_USERNAME'),
+            getenv('YOKAS_PASSWORD')
+        );
         $request = new OgrenciGelisBilgisiRequest();
+        $request->suniversiteid = getenv('YOKAS_ID');
         $request->sgelistarihi = '01.01.2022';
         $request->sakademikyil = '2021-22';
         $request->sakademikdonem = '1';
@@ -33,13 +38,21 @@ class ClientTest extends TestCase
 
     public function testKodOlustur()
     {
-        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
+        $client = new Client(
+            'https://yokas.mebnet.net/service.asmx?wsdl',
+            getenv('YOKAS_USERNAME'),
+            getenv('YOKAS_PASSWORD')
+        );
         $this->assertTrue(true);
     }
 
     public function testOgrenciekle()
     {
-        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
+        $client = new Client(
+            'https://yokas.mebnet.net/service.asmx?wsdl',
+            getenv('YOKAS_USERNAME'),
+            getenv('YOKAS_PASSWORD')
+        );
         $ognrenciEkleRequest = new OgrenciEkleRequest();
         $ognrenciEkleRequest->suyruk = 1;
         $ognrenciEkleRequest->suniversiteid = 1;
@@ -90,16 +103,25 @@ class ClientTest extends TestCase
         $this->assertTrue(true);
     }
 
-    public function testUniversitebirimliste()
+    public function testUniversiteAsibilgi()
     {
-        $client = new Client('https://yokas.mebnet.net/service.asmx?wsdl', getenv('YOKAS_USERNAME'), getenv('YOKAS_PASSWORD'));
-        $request = new UniversiteBirimListeRequest();
-        $request->suninersiteid=1;
-        $response = $client->universitebirimliste($request);
-//        foreach ($response->Table as $item) {
-//            var_dump($item);
-//        }
-        $this->assertTrue(true);
+        $client = new Client(
+            'https://yokas.mebnet.net/service.asmx?wsdl',
+            getenv('YOKAS_USERNAME'),
+            getenv('YOKAS_PASSWORD')
+        );
+        $request = new UniversiteAsibilgiRequest();
+        $request->suniversiteid = getenv('YOKAS_ID');
+        $request->skimlikno = 215045;
+        $request->sadi = "cengiz";
+        $request->ssoyadi = "önkal";
+        $request->sunvan = "personel";
+        $request->shangiasi = "Sinovac";
+        $request->sasitarihi = "01.01.2020";
 
+        $response = $client->UniversiteAsibilgi($request);
+        $this->assertTrue(true);
+        //$this->assertTrue($response->isSuccessful());
+        //$this->assertContains($response->getCode(), ['002', '001']);
     }
 }

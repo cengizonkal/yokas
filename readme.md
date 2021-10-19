@@ -13,6 +13,8 @@ $client = new \Conkal\Yokas\Client('https://yokas.mebnet.net/service.asmx?wsdl',
 ```
 ### Öğrenci Kaydet
 ```php
+require __DIR__ . '/vendor/autoload.php';
+$client = new \Conkal\Yokas\Client('https://yokas.mebnet.net/service.asmx?wsdl', '<YOKAS_USERNAME>', '<YOKAS_PASSWORD>');
 $ognrenciEkleRequest = new OgrenciEkleRequest();
 $ognrenciEkleRequest->suyruk = 1;
 $ognrenciEkleRequest->suniversiteid = 1;
@@ -57,30 +59,23 @@ $result = $client->ogrenciekle($ognrenciEkleRequest);
 // var_dump($result);
 
 ```
-### Öğrenci Geliş Bilgisi
-```php
-$request = new OgrenciGelisBilgisiRequest();
-$request->sgelistarihi = '01.01.2022';
-$request->sakademikyil = '2021-22';
-$request->sakademikdonem = '1';
-$request->sasitarihi = '01.01.2022';
-$request->sogrencino = '123456789';
-$request->adi = 'adi';
-$request->soyadi = 'soyadi';
-$request->skimlikno = '123456789';
-$request->spasaportno = '123456789';
-$request->suyrugu = 'TRY';
-$request->sgeldigiulke = 'Türkiye';
-$request->shangiasi = 'Sinovac';
-$response = $client->ogrencigelisbilgi($request);
 
-```
-### Birim Listele
 ```php
-$request = new UniversiteBirimListeRequest();
-$request->suninersiteid=1;
-$response = $client->universitebirimliste($request);
-//        foreach ($response->Table as $item) {
-//            var_dump($item);
-//        } 
+$client = new Client(
+    'https://yokas.mebnet.net/service.asmx?wsdl',
+    'YOKAS_USERNAME',
+    'YOKAS_PASSWORD'
+);
+$request = new UniversiteAsibilgiRequest();
+$request->suniversiteid = 'YOKAS_ID';
+$request->skimlikno = 215045;
+$request->sadi = "cengiz";
+$request->ssoyadi = "önkal";
+$request->sunvan = "personel";
+$request->shangiasi = "Sinovac";
+$request->sasitarihi = "01.01.2020";
+
+$response = $client->UniversiteAsibilgi($request);
+$this->assertContains($response->getCode(), ['002', '001']);
+
 ```

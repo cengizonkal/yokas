@@ -1,0 +1,12 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Yokas">
+            <directory>tests</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="YOKAS_USERNAME" value="username" />
+        <env name="YOKAS_PASSWORD" value="password" />
+        <env name="YOKAS_ID" value="ID" />
+    </php>
+</phpunit>
