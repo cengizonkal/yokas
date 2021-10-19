@@ -135,18 +135,18 @@ class ClientTest extends TestCase
             getenv('YOKAS_PASSWORD')
         );
         $request = new UniversiteBirimRequest();
-        $request->s1 = getenv('YOKAS_ID');
-        $request->s2 = "99999";
-        $request->s3 = "birimadi";
-        $request->s4 = "birimturadi";
-        $request->s5 = "baglibirim";
-        $request->s6 = "durum";
-        $request->s7 = "ogrenimdili";
-        $request->s8 = "ogrenimturu";
-        $request->s9 = "osymkod";
-        $request->s10 = "";
-        $request->s11 = "ogrenimsure";
-        $request->s12 = "birimadiingilizce";
+        $request->S1 = getenv('YOKAS_ID');
+        $request->S2 = "99999";
+        $request->S3 = "birimadi";
+        $request->S4 = "birimturadi";
+        $request->S5 = "baglibirim";
+        $request->S6 = "durum";
+        $request->S7 = "ogrenimdili";
+        $request->S8 = "ogrenimturu";
+        $request->S9 = "osymkod";
+        $request->S10 = "";
+        $request->S11 = "ogrenimsure";
+        $request->S12 = "birimadiingilizce";
 
 
         $response = $client->universiteBirim($request);
