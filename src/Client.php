@@ -5,10 +5,12 @@ namespace Conkal\Yokas;
 
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
 use Conkal\Yokas\Requests\OgrenciGelisBilgisiRequest;
+use Conkal\Yokas\Requests\OgrencikabulekleRequest;
 use Conkal\Yokas\Requests\UniversiteAsibilgiRequest;
 use Conkal\Yokas\Requests\UniversiteBirimRequest;
 use Conkal\Yokas\Responses\OgrenciEkleResponse;
 use Conkal\Yokas\Responses\OgrenciGelisBilgiResponse;
+use Conkal\Yokas\Responses\OgrencikabulekleResponse;
 use Conkal\Yokas\Responses\UniversiteAsibilgiResponse;
 use Conkal\Yokas\Responses\UniversiteBirimResponse;
 
@@ -78,6 +80,14 @@ class Client extends \SoapClient
     {
         $result = parent::universiteBirim($request);
         return new UniversiteBirimResponse($result->UniversiteBirimResult);
+    }
+
+
+    public function ogrencikabulekle(OgrencikabulekleRequest $request)
+    {
+        $result = parent::ogrencikabulekle($request);
+        var_dump($result);
+        return new OgrencikabulekleResponse($result->ogrencikabulekleResult);
     }
 
 

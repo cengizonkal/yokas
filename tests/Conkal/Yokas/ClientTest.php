@@ -4,6 +4,7 @@ namespace Conkal\Yokas;
 
 use Conkal\Yokas\Requests\OgrenciEkleRequest;
 use Conkal\Yokas\Requests\OgrenciGelisBilgisiRequest;
+use Conkal\Yokas\Requests\OgrencikabulekleRequest;
 use Conkal\Yokas\Requests\UniversiteAsibilgiRequest;
 use Conkal\Yokas\Requests\UniversiteBirimRequest;
 use PHPUnit\Framework\TestCase;
@@ -149,6 +150,37 @@ class ClientTest extends TestCase
 
 
         $response = $client->universiteBirim($request);
+        var_dump($response);
+        $this->assertTrue(true);
+
+    }
+
+    public function testOgrencikabulekle()
+    {
+
+        $client = new Client(
+            'https://yokas.mebnet.net/service.asmx?wsdl',
+            getenv('YOKAS_USERNAME'),
+            getenv('YOKAS_PASSWORD')
+        );
+        $request = new OgrencikabulekleRequest();
+        $request->suniversiteid = getenv('YOKAS_ID');
+
+        $request->xsifre = true;
+        $request->sbasvuruno="123456";
+        $request->skimlikno="123456";
+        $request->spasaportno="123456";
+        $request->sadi="adı";
+        $request->ssoyadi="soyadı";
+        $request->scinsiyet="E";
+        $request->sanneadi="AAA";
+        $request->sbabaadi="BBB";
+        $request->sbasvuruyili="2021-22";
+        $request->sbasvurudonem="1";
+        $request->suyrugu="TR";
+        $request->sdogumtarihi="19.01.2000";
+        $request->sdogumyeri="KKTC";
+        $response = $client->Ogrencikabulekle($request);
         var_dump($response);
         $this->assertTrue(true);
 

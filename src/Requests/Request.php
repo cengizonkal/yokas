@@ -6,6 +6,8 @@ abstract class Request implements \ArrayAccess
 {
 
     public $xsifre = true;
+    public $suniversiteid;
+
     public function offsetExists($offset)
     {
         return in_array($offset, get_object_vars($this));
