@@ -87,7 +87,6 @@ class ClientTest extends TestCase
         $ognrenciEkleRequest->sgenelnotortalama = '1';
         $ognrenciEkleRequest->suyrugu = 'TRY';
         $ognrenciEkleRequest->sdiplomatur = '1';
-        $ognrenciEkleRequest->sdiplomatur = '1';
         $ognrenciEkleRequest->shazirliksayi = '1';
         $ognrenciEkleRequest->skktcadres = '1';
         $ognrenciEkleRequest->sanneadi = 'anne';
